@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    LOGIN
+  </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript">  
+          
+        function GenerateCaptcha() {  
+            var chr1 = Math.ceil(Math.random() * 10) + '';  
+            var chr2 = Math.ceil(Math.random() * 10) + '';  
+            var chr3 = Math.ceil(Math.random() * 10) + '';  
+  
+            var str = new Array(4).join().replace(/(.|$)/g, function () { return ((Math.random() * 36) | 0).toString(36)[Math.random() < .5 ? "toString" : "toUpperCase"](); });  
+            var captchaCode = str + chr1 + ' ' + chr2 + ' ' + chr3;  
+            document.getElementById("txtCaptcha").value = captchaCode  
+        }  
+  
+        
+        function ValidCaptcha() {  
+        
+
+            var str1 = removeSpaces(document.getElementById('txtCaptcha').value);  
+            var str2 = removeSpaces(document.getElementById('txtCompare').value); 
+             var x = document.forms["myForm1"]["uname"].value; 
+             if (str1 == str2 && x !=""&& str2 !="")
+                  {alert("login successfully");
+                           }
+                    else if(x=="")
+                    {
+                      alert("Enter valid username")
+                    }
+                else if (str2=="")
+                  {alert("Please enter captcha");
+                return false
+            }
+              else
+              {
+                alert("Please enter correct captcha");
+              }
+        }  
+  
+        /* Remove spaces from Captcha Code */  
+        function removeSpaces(string) {  
+            return string.split(' ').join('');  
+        }
+
+
+var start=1;
+function set_time()
+{
+  setInterval(image_show,2000);
+}
+function image_show()
+{
+var image_data;
+if(start==1)
+{
+  image_data="1.jpg";
+}
+else if(start==2)
+{
+  image_data="2.jpg";
+}
+else if(start==3)
+{
+  image_data="3.jpg";
+
+}
+else 
+{
+  start=1;
+}
+document.getElementById("data").src=""+image_data;
+start++;
+}
+$(document).ready(function(){
+        $("#submit").click(function(){
+            $("#cap").slideDown();
+        });
+    });
+
+$(document).ready(function(){
+        $("#submit1").click(function(){
+            $("#cap").slideDown();
+        });
+    });
+$(document).ready(function(){
+        $("#submit1").click(function(){
+            $("#cap").slideDown();
+        });
+    });
+
+
+
+        // Initialize images in an array
+
+    </script>  
+
+    
+<style>form {
+  border: 3px solid #f1f1f1;
+  background: #aaa;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin:center ;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: grey;
+  color: white;
+  padding: 14px 20px;
+  margin: center;
+  border: none;
+  cursor: pointer;
+  width: 23%;
+  text-align: center;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+  margin:center;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+
+}
+
+.center {
+  margin: auto;
+  width: 100%;
+  border: 2px solid black;
+  padding: 10px;
+  background-color: #aaa;
+}
+
+.container {
+  padding: 16px;
+  background-color: #aaa;
+}
+
+/* The "Forgot password" text */
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+   /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  background-color: #aaa;
+
+}
+
+
+.inner_header
+{
+  width: 100%;
+  height: 80px;
+  display: block;
+  border-style: solid;
+  margin:10 auto;
+  background-color:#aaa ;
+  border-width: 2px;
+  text-align: center;
+
+}
+.inner_header h1
+{
+  color: white;
+  text-align: center;
+  height:80px;
+
+  vertical-align: middle;
+  align-content: middle;
+  font-size: 40px;
+  font-weight: 900;
+  
+}
+
+</style>
+
+<form name="myForm" action="action_page.php"  method="post">
+  <div class="inner_header">
+          <h1>VESIT ONLINE EXAMINATION</h1> 
+         </div>
+  <body onload="set_time()">
+  <div class="imgcontainer" id="image-data">
+    <img src="1.jpg"  width="1200" height="450" id="data">
+  </div>
+  <div class="row">
+    <form name="myForm1" action="action_page.php"  method="post">
+
+  <div class="column" style="background-color:#aaa;">
+
+  <div class="container">
+    <div class="center">
+     <h3 align="center"> STUDENT LOGIN </h3>
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" id="username" required><br>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" id="password" required><br>
+    <button  id="submit" onclick="ValidCaptcha()" />Login</button>
+    
+  
+  </div>
+</div>
+
+</div>
+</form>
+<form name="myForm2" action="action_page.php"  method="post">
+  <div class="column" style="background-color:#aaa;">
+<div class="container">
+  <div class="center">
+   <h3 align="center"> EXAMINER LOGIN </h3>
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required><br>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required><br>
+    <button  id="submit2" onclick="ValidCaptcha()" />Login</button>
+    
+    
+  
+  </div>
+</div>
+</div>
+</form>
+
+
+    
+    
+    
+  </div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+</form>
+</body>
+</html>
